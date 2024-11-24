@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bookmarker</title>
+
+    <!-- ========== Start Google Font ========== -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=PT+Sans+Caption:wght@400;700&family=Pacifico&family=Righteous&display=swap"
+      rel="stylesheet"
+    />
+    <!-- ========== End Google Font ========== -->
+
+    <!-- ========== Start Font Awesome ========== -->
+    <link rel="stylesheet" href="./CSS/all.min.css" />
+    <!-- ========== End Font Awesome ========== -->
+
+    <!-- ========== Start Bootstrap Css ========== -->
+    <link rel="stylesheet" href="./CSS/bootstrap.min.css" />
+    <!-- ========== End Bootstrap Css ========== -->
+
+    <!-- ========== Start Main Css ========== -->
+    <link rel="stylesheet" href="./CSS/main.css" />
+    <!-- ========== End Main Css ========== -->
+  </head>
+  <body>
+    <main class="py-5">
+      <section>
+        <div class="container">
+          <div class="bookmark-content">
+            <div class="title d-flex justify-content-center">
+              <h1 class="">Bookmarker</h1>
+            </div>
+            <p class="pt-3">
+              <i class="fa-solid fa-bookmark"></i>
+              Bookmark your favorite sites
+              <i class="fa-solid fa-bookmark"></i>
+            </p>
+            <div>
+              <div class="mb-4">
+                <label for="siteNameInput" class="form-label fw-600 main-color">
+                  <i class="fa-solid fa-book-bookmark pe-2"></i>
+                  <span>Site Name</span>
+                </label>
+                <input
+                  oninput="validateSiteName()"
+                  type="text"
+                  class="form-control"
+                  id="siteNameInput"
+                  placeholder="Bookmark Name"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="siteUrlInput" class="form-label fw-600 main-color">
+                  <i class="fa-solid fa-link pe-2"></i>
+                  <span>Site URL </span>
+                </label>
+                <input
+                  oninput="validateSiteUrl()"
+                  type="url"
+                  class="form-control"
+                  id="siteUrlInput"
+                  placeholder="Website Url"
+                />
+              </div>
+            </div>
+            <div class="sumbmit text-center">
+              <button
+                onclick="addBookmark()"
+                class="btn btn-danger px-5 mt-2"
+                id="submitButton"
+              >
+                Submit
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="pt-4">
+        <div class="container">
+          <table class="table text-center">
+            <thead>
+              <tr>
+                <th scope="col">Index</th>
+                <th scope="col">Website Name</th>
+                <th scope="col">Visit</th>
+                <th scope="col">Delete</th>
+              </tr>
+            </thead>
+            <tbody id="bookmarkTableBody"></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <div id="validationModal" class="popup hidden">
+      <div
+        class="popup-header d-flex justify-content-between align-items-center mb-3"
+      >
+        <ul class="d-flex list-unstyled gap-1 m-0">
+          <li
+            class="bg-danger rounded-pill"
+            style="width: 20px; height: 20px"
+          ></li>
+          <li
+            class="bg-warning rounded-pill"
+            style="width: 20px; height: 20px"
+          ></li>
+          <li
+            class="bg-success rounded-pill"
+            style="width: 20px; height: 20px"
+          ></li>
+        </ul>
+        <button id="closeModal" class="close-btn">
+          <i class="fa-solid fa-xmark close fs-3"></i>
+        </button>
+      </div>
+      <div class="popup-content">
+        <p class="h5 mb-3">
+          Site Name or Url is not valid, Please follow the rules below:
+        </p>
+        <ul class="list-unstyled m-0">
+          <li class="h6 fw-normal d-flex align-items-baseline">
+            <i class="fa-regular fa-circle-right p-2 text-danger"></i>
+            <p>Site name must contain at least 3 characters</p>
+          </li>
+          <li class="h6 fw-normal d-flex align-items-baseline">
+            <i class="fa-regular fa-circle-right p-2 text-danger"></i>
+            <p>Site name must contain at least 3 characters</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ========== Start Bootstrap Js ========== -->
+    <script src="./JS/bootstrap.bundle.min.js"></script>
+    <!-- ========== End Bootstrap Js ========== -->
+
+    <!-- ========== Start Main Js ========== -->
+    <script src="./JS/index.js"></script>
+    <!-- ========== End Main Js ========== -->
+  </body>
+</html>
